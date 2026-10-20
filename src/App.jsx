@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Code2, ExternalLink, Github, Mail, Menu, Moon, Sun, X, Languages } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Code2, ExternalLink, Github, Mail, Menu, Moon, Sun, X, Languages,  Download
+ } from 'lucide-react';
 import SectionHeading from './components/SectionHeading.jsx';
 import { journey, profile, projects, skills } from './data/portfolio.js';
-
  
  
 const translations = {
   fr: {
+    downloadCV: 'Télécharger mon CV',
     navAbout: 'À propos',
     navSkills: 'Compétences',
     navProjects: 'Projets',
@@ -75,6 +76,7 @@ const translations = {
   },
 
   en: {
+    downloadCV: 'Download CV',
     navAbout: 'About',
     navSkills: 'Skills',
     navProjects: 'Projects',
@@ -143,6 +145,7 @@ const translations = {
   },
 
   ar: {
+    downloadCV: 'تحميل السيرة الذاتية',
     navAbout: 'نبذة عني',
     navSkills: 'المهارات',
     navProjects: 'المشاريع',
@@ -220,7 +223,9 @@ function Header({ dark, setDark, lang, setLang, t }) {
     <button className="menu-toggle icon-button" onClick={() => setOpen(!open)} aria-label={open ? t.closeMenu : t.openMenu}>{open ? <X size={20}/> : <Menu size={20}/>}</button>
     <nav className={open ? 'nav-links nav-open' : 'nav-links'}>{links.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}</nav>
     <div className="header-controls"><div className="language-switch" aria-label="Language selector"><Languages size={15}/>{['fr','en','ar'].map(code => <button key={code} type="button" className={lang === code ? 'language-active' : ''} onClick={() => setLang(code)} aria-pressed={lang === code}>{code.toUpperCase()}</button>)}</div>
-    <button className="theme-toggle icon-button" onClick={() => setDark(!dark)} aria-label={t.theme}>{dark ? <Sun size={18}/> : <Moon size={18}/>}</button></div>
+    <button className="theme-toggle icon-button" onClick={() => setDark(!dark)} aria-label={t.theme}>{dark ? <Sun size={18}/> : <Moon size={18}/>}</button>
+    </div>
+    
   </header>;
 }
 
@@ -272,7 +277,15 @@ export default function App() {
   }, [lang]);
   
   return <div className={isArabic ? 'app app-rtl' : 'app'}><Header dark={dark} setDark={setDark} lang={lang} setLang={setLang} t={t}/><main>
-    <section className="hero section-wrap" id="accueil"><div className="hero-copy"><div className="availability"><span className="status-dot"/> {t.available} · {profile.location}</div><p className="eyebrow">{t.hello}</p><h1>{profile.name}<span className="hero-period">.</span></h1><h2>{t.role}</h2><p className="hero-description">{profile.intro[lang]}</p><div className="hero-actions"><a className="button button-primary" href="#projets">{t.projectsBtn} <ArrowDownRight size={18}/></a><a className="button button-secondary" href={`mailto:${profile.email}`}>{t.contactBtn} <Mail size={17}/></a></div><div className="hero-socials"><a href={profile.github} target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ArrowUpRight size={13}/></a><span className="social-separator"/> <span className="mono-label">HTML · CSS · JS · REACT · PHP · LARAVEL</span></div></div>
+    <section className="hero section-wrap" id="accueil"><div className="hero-copy"><div className="availability"><span className="status-dot"/> {t.available} · {profile.location}</div><p className="eyebrow">{t.hello}</p><h1>{profile.name}<span className="hero-period">.</span></h1><h2>{t.role}</h2><p className="hero-description">{profile.intro[lang]}</p><div className="hero-actions"><a className="button button-primary" href="#projets">{t.projectsBtn} <ArrowDownRight size={18}/></a><a className="button button-secondary" href={`mailto:${profile.email}`}>{t.contactBtn} <Mail size={17}/></a>  <a
+    className="button button-secondary"
+    href="/cv-redouane-skouti.pdf"
+    download="Redouane-Skouti-CV.pdf"
+  >
+    <Download size={17} />
+    {t.downloadCV}
+  </a>
+  </div><div className="hero-socials"><a href={profile.github} target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ArrowUpRight size={13}/></a><span className="social-separator"/> <span className="mono-label">HTML · CSS · JS · REACT · PHP · LARAVEL</span></div></div>
       <div className="hero-art" aria-label="Code illustration"><div className="art-orbit orbit-one"/><div className="art-orbit orbit-two"/><div className="code-card"><div className="code-card-header"><div className="window-dots"><i/><i/><i/></div><span>developer.js</span><Code2 size={15}/></div><div className="code-lines"><p><span className="code-purple">const</span> developer <span className="code-pink">=</span> {'{'}</p><p className="indent"><span className="code-blue">name</span>: <span className="code-green">'{profile.name}'</span>,</p><p className="indent"><span className="code-blue">role</span>: <span className="code-green">'Full Stack Junior'</span>,</p><p className="indent"><span className="code-blue">{t.learning}</span>: <span className="code-orange">true</span>,</p><p className="indent"><span className="code-blue">building</span>: <span className="code-green">'{t.building}'</span></p><p>{'}'};</p><p className="code-comment">{t.codeComment}</p><p><span className="code-purple">while</span> (<span className="code-orange">true</span>) {'{'}</p><p className="indent">improve(); <span className="cursor"/></p><p>{'}'}</p></div></div><div className="floating-chip chip-react"><span>⚛</span> React</div><div className="floating-chip chip-php"><span>₱</span> PHP / Laravel</div><div className="hero-stamp"><span>BUILD</span><span>·</span><span>LEARN</span><span>·</span><span>REPEAT</span></div></div>
       <a className="scroll-hint" href="#apropos"><span className="scroll-line"/> {t.scroll}</a>
     </section>
