@@ -286,7 +286,18 @@ export default function App() {
     {t.downloadCV}
   </a>
   </div><div className="hero-socials"><a href={profile.github} target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ArrowUpRight size={13}/></a><span className="social-separator"/> <span className="mono-label">HTML · CSS · JS · REACT · PHP · LARAVEL</span></div></div>
-      <div className="hero-art" aria-label="Code illustration"><div className="art-orbit orbit-one"/><div className="art-orbit orbit-two"/><div className="code-card"><div className="code-card-header"><div className="window-dots"><i/><i/><i/></div><span>developer.js</span><Code2 size={15}/></div><div className="code-lines"><p><span className="code-purple">const</span> developer <span className="code-pink">=</span> {'{'}</p><p className="indent"><span className="code-blue">name</span>: <span className="code-green">'{profile.name}'</span>,</p><p className="indent"><span className="code-blue">role</span>: <span className="code-green">'Full Stack Junior'</span>,</p><p className="indent"><span className="code-blue">{t.learning}</span>: <span className="code-orange">true</span>,</p><p className="indent"><span className="code-blue">building</span>: <span className="code-green">'{t.building}'</span></p><p>{'}'};</p><p className="code-comment">{t.codeComment}</p><p><span className="code-purple">while</span> (<span className="code-orange">true</span>) {'{'}</p><p className="indent">improve(); <span className="cursor"/></p><p>{'}'}</p></div></div><div className="floating-chip chip-react"><span>⚛</span> React</div><div className="floating-chip chip-php"><span>₱</span> PHP / Laravel</div><div className="hero-stamp"><span>BUILD</span><span>·</span><span>LEARN</span><span>·</span><span>REPEAT</span></div></div>
+      <div className="hero-art" aria-label="Code illustration">
+        <div className="art-orbit orbit-one"/> 
+        <div className="art-orbit orbit-two"/>
+      {/*<div className="code-card"><div className="code-card-header"><div className="window-dots"><i/><i/><i/>
+      </div><span>developer.js</span><Code2 size={15}/></div><div className="code-lines"><p><span className="code-purple">const</span> developer <span className="code-pink">=</span> {'{'}</p><p className="indent"><span className="code-blue">name</span>: <span className="code-green">'{profile.name}'</span>,</p><p className="indent"><span className="code-blue">role</span>: <span className="code-green">'Full Stack Junior'</span>,</p><p className="indent"><span className="code-blue">{t.learning}</span>: <span className="code-orange">true</span>,</p><p className="indent"><span className="code-blue">building</span>: <span className="code-green">'{t.building}'</span></p><p>{'}'};</p><p className="code-comment">{t.codeComment}</p><p><span className="code-purple">while</span> (<span className="code-orange">true</span>) {'{'}</p><p className="indent">improve(); <span className="cursor"/></p><p>{'}'}</p></div
+      ></div>*/}
+      <img
+      className="profile-photo"
+      src="Profile.png"
+      alt="Redouane Skouti  Développeur Web Full Stack Junior"
+      />
+      <div className="floating-chip chip-react"><span>⚛</span> React</div><div className="floating-chip chip-php"><span>₱</span> PHP / Laravel</div><div className="hero-stamp"><span>BUILD</span><span>·</span><span>LEARN</span><span>·</span><span>REPEAT</span></div></div> 
       <a className="scroll-hint" href="#apropos"><span className="scroll-line"/> {t.scroll}</a>
     </section>
 
