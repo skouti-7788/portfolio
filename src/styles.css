@@ -18,7 +18,18 @@ button{font:inherit}
 .hero:before{content:"";position:absolute;width:400px;height:400px;left:-160px;top:30px;border-radius:50%;background:var(--accent);opacity:.055;filter:blur(80px);pointer-events:none}
 .hero-copy{position:relative;z-index:2}
 .availability{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:38px}
-.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px color-mix(in srgb,var(--green) 15%,transparent)}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation: statusPulse 4s infinite;}
+@keyframes statusPulse {
+  0%, 100% {
+    transform: scale(0.7);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 10%, transparent);
+  }
+
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--green) 5%, transparent);
+  }
+}
 .eyebrow{font-family:'DM Mono',monospace;color:var(--accent);font-size:11px;letter-spacing:.14em;font-weight:500;margin:0 0 17px}
 .hero h1{font-size:clamp(42px,5.7vw,72px);line-height:1.02;letter-spacing:-.075em;margin:0;font-weight:800}
 .hero h2{font-size:clamp(18px,2vw,24px);letter-spacing:-.045em;margin:17px 0 0;color:var(--muted);font-weight:600}
@@ -420,7 +431,10 @@ button{font:inherit}
   filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.16));
   animation: profile-float 5s ease-in-out infinite;
 }
-
+.laravel-icon {
+  color: var(--accent);
+  font-size: 24px;
+}
 /* @keyframes profile-float {
   0%, 100% {
     transform: translateY(0);

@@ -3,7 +3,7 @@ import { ArrowDownRight, ArrowUpRight, Code2, ExternalLink, Github, Mail, Menu, 
  } from 'lucide-react';
 import SectionHeading from './components/SectionHeading.jsx';
 import { journey, profile, projects, skills } from './data/portfolio.js';
- 
+import { DiLaravel } from 'react-icons/di';
  
 const translations = {
   fr: {
@@ -277,14 +277,26 @@ export default function App() {
   }, [lang]);
   
   return <div className={isArabic ? 'app app-rtl' : 'app'}><Header dark={dark} setDark={setDark} lang={lang} setLang={setLang} t={t}/><main>
-    <section className="hero section-wrap" id="accueil"><div className="hero-copy"><div className="availability"><span className="status-dot"/> {t.available} · {profile.location}</div><p className="eyebrow">{t.hello}</p><h1>{profile.name}<span className="hero-period">.</span></h1><h2>{t.role}</h2><p className="hero-description">{profile.intro[lang]}</p><div className="hero-actions"><a className="button button-primary" href="#projets">{t.projectsBtn} <ArrowDownRight size={18}/></a><a className="button button-secondary" href={`mailto:${profile.email}`}>{t.contactBtn} <Mail size={17}/></a>  <a
-    className="button button-secondary"
-    href="/cv-redouane-skouti.pdf"
-    download="Redouane-Skouti-CV.pdf"
-  >
-    <Download size={17} />
-    {t.downloadCV}
-  </a>
+    <section className="hero section-wrap" id="accueil">
+      <div className="hero-copy">
+        <div className="availability"> <span className="status-dot"/> {t.available} · {profile.location}</div>
+          <p className="eyebrow">{t.hello}</p>
+          <h1>{profile.name}
+            <span className="hero-period">.</span>
+          </h1>
+          <h2>{t.role}</h2>
+          <p className="hero-description">
+            {profile.intro[lang]}</p>
+          <div className="hero-actions">
+            <a className="button button-primary" href="#projets">{t.projectsBtn} <ArrowDownRight size={18}/></a>
+            <a className="button button-secondary" href={`mailto:${profile.email}`}>{t.contactBtn} <Mail size={17}/></a>
+              <a className="button button-secondary"
+                href="/cv-redouane-skouti.pdf"
+                download="Redouane-Skouti-CV.pdf"
+              >
+                <Download size={17} />
+                {t.downloadCV}
+              </a>
   </div><div className="hero-socials"><a href={profile.github} target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ArrowUpRight size={13}/></a><span className="social-separator"/> <span className="mono-label">HTML · CSS · JS · REACT · PHP · LARAVEL</span></div></div>
       <div className="hero-art" aria-label="Code illustration">
         <div className="art-orbit orbit-one"/> 
@@ -297,7 +309,7 @@ export default function App() {
       src="Profile.png"
       alt="Redouane Skouti  Développeur Web Full Stack Junior"
       />
-      <div className="floating-chip chip-react"><span>⚛</span> React</div><div className="floating-chip chip-php"><span>₱</span> PHP / Laravel</div><div className="hero-stamp"><span>BUILD</span><span>·</span><span>LEARN</span><span>·</span><span>REPEAT</span></div></div> 
+      <div className="floating-chip chip-react"><span>⚛</span> React</div><div className="floating-chip chip-php"><DiLaravel className="laravel-icon" />Laravel</div><div className="hero-stamp"><span>BUILD</span><span>·</span><span>LEARN</span><span>·</span><span>REPEAT</span></div></div> 
       <a className="scroll-hint" href="#apropos"><span className="scroll-line"/> {t.scroll}</a>
     </section>
 
