@@ -55,7 +55,6 @@ export const projects = [
     image: 'menuOnline.png',
 
     links: {
-      demo: 'https://menu-online.vercel.app/',
       adminDemo: 'https://responsable-restaurant-sr5c.vercel.app/',
       github1: 'https://github.com/skouti-7788/menu-',
       github2: 'https://github.com/skouti-7788/responsable-restaurant',
